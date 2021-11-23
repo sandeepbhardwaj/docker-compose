@@ -1,0 +1,9 @@
+version: '3.1'
+
+services:
+
+  axonserver:
+    image: axoniq/axonserver
+    restart: always
+    ports:
+      - 8024:8024
