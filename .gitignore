@@ -37,3 +37,5 @@ nbdist/
 hs_err_pid*
 
 * text=auto
+*/axonserver-data/data/
+*/axonserver-data/events/
