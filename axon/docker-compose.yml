@@ -1,9 +1,28 @@
-version: '3.1'
+version: '3.8'
 
 services:
-
   axonserver:
     image: axoniq/axonserver
-    restart: always
+    hostname: axonserver
+    container_name: axonserver
+    volumes:
+      - type: bind
+        source: ./axonserver-data/data
+        target: /data
+      - type: bind
+        source: ./axonserver-data/events
+        target: /eventdata
+      - type: bind
+        source: ./axonserver-data/config
+        target: /config
+        read_only: true
     ports:
-      - 8024:8024
+      - '8024:8024'
+      - '8124:8124'
+      - '8224:8224'
+    networks:
+      - axon-demo
+
+networks:
+  axon-demo:
+    driver: bridge 

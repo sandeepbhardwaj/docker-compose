@@ -1,0 +1,4 @@
+axoniq:
+  axonserver:
+    devmode:
+      enabled: true
