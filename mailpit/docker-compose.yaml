@@ -1,0 +1,21 @@
+services:
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: mailpit
+    ports:
+      - "1025:1025" # SMTP
+      - "8025:8025" # Web UI
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: "false"
+      MP_SMTP_AUTH_ALLOW_INSECURE: "true"
+      MP_SMTP_AUTH_USERNAME: "no-reply@invoice.studio"
+      MP_SMTP_AUTH_PASSWORD: "password"
+      MP_UI_AUTH: "true"
+      MP_UI_AUTH_USERNAME: "adno-reply@invoice.studiomin"
+      MP_UI_AUTH_PASSWORD: "password"
+    volumes:
+      - mailpit_data:/data
+    restart: unless-stopped
+
+volumes:
+  mailpit_data:
